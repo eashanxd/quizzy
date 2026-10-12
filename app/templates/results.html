@@ -1,0 +1,66 @@
+{% extends "base.html" %} {% block title %}Results | Quizzy{% endblock %} {%
+block content %}
+<section class="quiz-page container">
+  <div class="question-panel results-panel">
+    <span class="section-kicker">SESSION COMPLETE</span>
+
+    <h1>Challenge completed.</h1>
+
+    <p class="question-instruction">
+      {{ category|title }} / {{ difficulty|title }}
+    </p>
+
+    <div class="results-score">
+      <span class="results-percentage">{{ percentage }}%</span>
+      <span class="results-fraction">{{ score }} / {{ total }} correct</span>
+    </div>
+
+    <p>
+      {% if percentage == 100 %} Perfect run. Every answer was correct. {% elif
+      percentage >= 70 %} Solid work. You've got a good grasp of this topic. {%
+      elif percentage >= 40 %} Good attempt. Keep practising to strengthen your
+      knowledge. {% else %} Every attempt is a chance to learn. Give it another
+      go. {% endif %}
+    </p>
+
+    <section class="answer-review">
+      <div class="section-kicker">SESSION BREAKDOWN</div>
+      <h2>Review your answers</h2>
+
+      {% for item in history %}
+      <article class="review-item">
+        <div class="review-heading">
+          <span>QUESTION {{ "%02d"|format(loop.index) }}</span>
+          <span
+            class="{{ 'review-correct' if item.is_correct else 'review-incorrect' }}"
+          >
+            {{ "Correct" if item.is_correct else "Incorrect" }}
+          </span>
+        </div>
+
+        <h3>{{ item.question }}</h3>
+
+        <p class="review-answer">
+          Your answer: <strong>{{ item.selected_answer }}</strong>
+        </p>
+
+        {% if not item.is_correct %}
+        <p class="review-answer">
+          Correct answer: <strong>{{ item.correct_answer }}</strong>
+        </p>
+        {% endif %}
+      </article>
+      {% endfor %}
+
+      <p class="review-streak">
+        Best correct-answer streak: <strong>{{ best_streak }}</strong>
+      </p>
+    </section>
+
+    <a href="{{ url_for('main.home') }}" class="button button-primary">
+      Try another quiz
+      <i data-lucide="arrow-right" aria-hidden="true"></i>
+    </a>
+  </div>
+</section>
+{% endblock %}

@@ -1,170 +1,236 @@
+{% extends "base.html" %} {% block title %}Quizzy | Challenge Your Mind{%
+endblock %} {% block content %}
 
-{% extends "base.html" %}
-
-{% block title %}Quizzy | Challenge Your Mind{% endblock %}
-
-{% block content %}
 <section class="hero container">
-    <div class="hero-content">
-        <div class="eyebrow">
-            <span class="status-dot"></span>
-            YOUR NEXT CHALLENGE AWAITS
-        </div>
-
-        <h1>
-            How much do<br>
-            <span class="gradient-text">you really know?</span>
-        </h1>
-
-        <p class="hero-description">
-            Explore new topics, test your knowledge, and discover
-            what you're capable of. One question at a time.
-        </p>
-
-        <div class="hero-actions">
-            <a href="#quiz-setup" class="button button-primary">
-                Start a quiz
-                <span aria-hidden="true">↗</span>
-            </a>
-
-            <a href="#categories" class="button button-secondary">
-                Explore categories
-            </a>
-        </div>
-
-        <div class="hero-note">
-            <span>✦</span>
-            Learn something new with every attempt.
-        </div>
+  <div class="hero-content">
+    <div class="eyebrow">
+      <span class="status-dot"></span>
+      QUIZZY / KNOWLEDGE LAB
     </div>
 
-    <div class="hero-visual" aria-hidden="true">
-        <div class="visual-glow"></div>
+    <h1>
+      Test what<br />
+      <span class="gradient-text">you know.</span>
+    </h1>
 
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
+    <p class="hero-description">
+      Pick a subject. Challenge your understanding. Find out what you need to
+      learn next.
+    </p>
 
-        <div class="floating-card card-top">
-            <span class="mini-icon purple-icon">✦</span>
-            <div>
-                <strong>Stay curious</strong>
-                <p>Every question counts</p>
-            </div>
-        </div>
-
-        <div class="quiz-preview">
-            <div class="preview-header">
-                <span class="preview-label">QUIZ PREVIEW</span>
-                <span class="preview-number">01 / 10</span>
-            </div>
-
-            <div class="preview-progress">
-                <span></span>
-            </div>
-
-            <div class="preview-symbol">✧</div>
-
-            <h2>Ready to challenge yourself?</h2>
-            <p>Choose a topic and see where curiosity takes you.</p>
-
-            <div class="preview-options">
-                <div><span>A</span> Science</div>
-                <div><span>B</span> Technology</div>
-                <div><span>C</span> History</div>
-            </div>
-
-            <div class="preview-footer">
-                <span>YOUR JOURNEY STARTS HERE</span>
-                <span class="preview-sparkle">✦</span>
-            </div>
-        </div>
-
-        <div class="floating-card card-bottom">
-            <span class="mini-icon green-icon">✓</span>
-            <div>
-                <strong>Keep improving</strong>
-                <p>Progress, one quiz at a time</p>
-            </div>
-        </div>
+    <div class="hero-actions">
+      <a href="#quiz-setup" class="button button-primary">
+        Build your quiz
+        <i data-lucide="arrow-right" aria-hidden="true"></i>
+      </a>
+      <a href="#categories" class="button button-secondary">
+        Browse subjects
+      </a>
     </div>
+
+    <div class="hero-note">
+      <i data-lucide="scan-eye" aria-hidden="true"></i>
+      <span>Curiosity in. Knowledge out.</span>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="lab-panel">
+      <div class="lab-panel-header">
+        <span>SESSION PREVIEW</span>
+        <span class="lab-status"> <span class="status-dot"></span> READY </span>
+      </div>
+
+      <div class="lab-question">
+        <span class="section-kicker">QUESTION 001</span>
+        <h2>What will you explore today?</h2>
+        <p>Your next challenge starts with a subject.</p>
+      </div>
+
+      <div class="lab-subject">
+        <i data-lucide="atom" aria-hidden="true"></i>
+        <span>Science</span>
+        <span class="lab-subject-tag">01</span>
+      </div>
+      <div class="lab-subject">
+        <i data-lucide="cpu" aria-hidden="true"></i>
+        <span>Technology</span>
+        <span class="lab-subject-tag">02</span>
+      </div>
+      <div class="lab-subject">
+        <i data-lucide="landmark" aria-hidden="true"></i>
+        <span>History</span>
+        <span class="lab-subject-tag">03</span>
+      </div>
+
+      <div class="lab-panel-footer">
+        <span>YOUR NEXT SESSION</span>
+        <i data-lucide="arrow-down-right" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="categories-section container" id="categories">
-    <div class="section-heading">
-        <div>
-            <span class="section-kicker">FIND YOUR INTEREST</span>
-            <h2>Explore your curiosity<span class="brand-dot">.</span></h2>
-        </div>
-        <p>Pick a subject. See what you know.</p>
+  <div class="section-heading">
+    <div>
+      <span class="section-kicker">01 / SELECT A SUBJECT</span>
+      <h2>What are we exploring?</h2>
     </div>
+    <p>Choose your field of curiosity.</p>
+  </div>
 
-    <div class="category-grid">
-        <button class="category-card" type="button" data-category="science">
-            <span class="category-icon">⚛</span>
-            <span class="category-name">Science</span>
-            <span class="category-description">Discover how the world works</span>
-            <span class="category-arrow">↗</span>
-        </button>
+  <div class="category-grid">
+    <button
+      class="category-card"
+      type="button"
+      data-category="science"
+      aria-pressed="false"
+    >
+      <span class="category-topline">
+        <i data-lucide="atom" aria-hidden="true"></i>
+        <span class="category-index">SUB / 01</span>
+      </span>
+      <span class="category-name">Science</span>
+      <span class="category-description"
+        >Physics, nature &amp; the universe</span
+      >
+      <span class="category-bottom">
+        <span>SELECT SUBJECT</span>
+        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+      </span>
+    </button>
 
-        <button class="category-card" type="button" data-category="technology">
-            <span class="category-icon">⌘</span>
-            <span class="category-name">Technology</span>
-            <span class="category-description">Explore the digital world</span>
-            <span class="category-arrow">↗</span>
-        </button>
+    <button
+      class="category-card"
+      type="button"
+      data-category="technology"
+      aria-pressed="false"
+    >
+      <span class="category-topline">
+        <i data-lucide="cpu" aria-hidden="true"></i>
+        <span class="category-index">SUB / 02</span>
+      </span>
+      <span class="category-name">Technology</span>
+      <span class="category-description">Computing, code &amp; innovation</span>
+      <span class="category-bottom">
+        <span>SELECT SUBJECT</span>
+        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+      </span>
+    </button>
 
-        <button class="category-card" type="button" data-category="history">
-            <span class="category-icon">◷</span>
-            <span class="category-name">History</span>
-            <span class="category-description">Travel through time</span>
-            <span class="category-arrow">↗</span>
-        </button>
+    <button
+      class="category-card"
+      type="button"
+      data-category="history"
+      aria-pressed="false"
+    >
+      <span class="category-topline">
+        <i data-lucide="landmark" aria-hidden="true"></i>
+        <span class="category-index">SUB / 03</span>
+      </span>
+      <span class="category-name">History</span>
+      <span class="category-description">People, places &amp; past events</span>
+      <span class="category-bottom">
+        <span>SELECT SUBJECT</span>
+        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+      </span>
+    </button>
 
-        <button class="category-card" type="button" data-category="entertainment">
-            <span class="category-icon">▷</span>
-            <span class="category-name">Entertainment</span>
-            <span class="category-description">Movies, games, and more</span>
-            <span class="category-arrow">↗</span>
-        </button>
-    </div>
+    <button
+      class="category-card"
+      type="button"
+      data-category="entertainment"
+      aria-pressed="false"
+    >
+      <span class="category-topline">
+        <i data-lucide="clapperboard" aria-hidden="true"></i>
+        <span class="category-index">SUB / 04</span>
+      </span>
+      <span class="category-name">Entertainment</span>
+      <span class="category-description">Film, games &amp; pop culture</span>
+      <span class="category-bottom">
+        <span>SELECT SUBJECT</span>
+        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+      </span>
+    </button>
+  </div>
 </section>
 
 <section class="setup-section container" id="quiz-setup">
-    <div class="setup-panel">
-        <div class="section-kicker">MAKE IT YOURS</div>
-        <h2>Your challenge, your rules<span class="brand-dot">.</span></h2>
-        <p>Choose a difficulty and get ready to test your knowledge.</p>
+  <div class="setup-panel">
+    <div class="section-kicker">MAKE IT YOURS</div>
+    <h2>Your challenge, your rules<span class="brand-dot">.</span></h2>
+    <p>Choose a difficulty and get ready to test your knowledge.</p>
 
-        <div class="difficulty-options" role="group" aria-label="Quiz difficulty">
-            <button type="button" class="difficulty-card is-selected"
-                    data-difficulty="easy" aria-pressed="true">
-                <span>☘</span>
-                <strong>Easy</strong>
-                <small>Warm up</small>
-            </button>
+    <div class="difficulty-options" role="group" aria-label="Quiz difficulty">
+      <button
+        type="button"
+        class="difficulty-card is-selected"
+        data-difficulty="easy"
+        aria-pressed="true"
+      >
+        <span>
+          <i data-lucide="star"></i>
+        </span>
+        <strong>Easy</strong>
+        <small>Warm up</small>
+      </button>
 
-            <button type="button" class="difficulty-card"
-                    data-difficulty="medium" aria-pressed="false">
-                <span>◈</span>
-                <strong>Medium</strong>
-                <small>Find your rhythm</small>
-            </button>
+      <button
+        type="button"
+        class="difficulty-card"
+        data-difficulty="medium"
+        aria-pressed="false"
+      >
+        <span>
+          <i data-lucide="zap"></i>
+        </span>
+        <strong>Medium</strong>
+        <small>Find your rhythm</small>
+      </button>
 
-            <button type="button" class="difficulty-card"
-                    data-difficulty="hard" aria-pressed="false">
-                <span>⚡</span>
-                <strong>Hard</strong>
-                <small>Push your limits</small>
-            </button>
-        </div>
-
-        <button class="button button-primary setup-start" id="start-quiz" type="button">
-            Let's get started <span aria-hidden="true">→</span>
-        </button>
-
-        <p class="setup-message" id="setup-message" role="status">
-            Your quiz settings are ready to customize.
-        </p>
+      <button
+        type="button"
+        class="difficulty-card"
+        data-difficulty="hard"
+        aria-pressed="false"
+      >
+        <span>
+          <i data-lucide="flame" aria-hidden="true"></i>
+        </span>
+        <strong>Hard</strong>
+        <small>Push your limits</small>
+      </button>
     </div>
+
+    <form
+      action="{{ url_for('main.quiz') }}"
+      method="POST"
+      id="quiz-setup-form"
+    >
+      <input type="hidden" name="category" id="selected-category" />
+
+      <input
+        type="hidden"
+        name="difficulty"
+        id="selected-difficulty"
+        value="easy"
+      />
+
+      <button
+        class="button button-primary setup-start"
+        id="start-quiz"
+        type="submit"
+      >
+        Build your quiz
+        <i data-lucide="arrow-right" aria-hidden="true"></i>
+      </button>
+    </form>
+
+    <p class="setup-message" id="setup-message" role="status">
+      Your quiz settings are ready to customize.
+    </p>
+  </div>
 </section>
 {% endblock %}

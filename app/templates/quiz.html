@@ -1,0 +1,97 @@
+{% extends "base.html" %} {% block title %}Quiz Session | Quizzy{% endblock %}
+{% block content %}
+<section class="quiz-page container">
+  <header class="quiz-topbar">
+    <a href="{{ url_for('main.home') }}" class="quiz-back">
+      <i data-lucide="arrow-left" aria-hidden="true"></i>
+      Exit quiz
+    </a>
+
+    <span class="quiz-session-label">QUIZZY / LIVE SESSION</span>
+  </header>
+
+  <div class="quiz-meta">
+    <span>{{ category|title }}</span>
+    <span class="meta-separator">/</span>
+    <span>{{ difficulty|title }}</span>
+    <span class="quiz-counter">
+      QUESTION {{ "%02d"|format(question_number) }} OF {{
+      "%02d"|format(total_questions) }}
+    </span>
+  </div>
+
+  <div
+    class="quiz-progress"
+    role="progressbar"
+    aria-label="Quiz progress"
+    aria-valuemin="0"
+    aria-valuemax="{{ total_questions }}"
+    aria-valuenow="{{ question_number }}"
+  >
+    <span style="width: {{ question_number / total_questions * 100 }}%"></span>
+  </div>
+
+  <section class="live-stats" id="live-stats" aria-label="Live quiz progress">
+    <div class="live-stats-heading">
+      <div>
+        <span class="section-kicker">LIVE PERFORMANCE</span>
+        <p>Your run, so far.</p>
+      </div>
+      <span class="live-indicator"> <span></span> LIVE </span>
+    </div>
+
+    <div class="live-stats-grid">
+      <div class="live-stat">
+        <span>Score</span>
+        <strong id="live-score">0/10</strong>
+      </div>
+      <div class="live-stat">
+        <span>Accuracy</span>
+        <strong id="live-accuracy">0%</strong>
+      </div>
+      <div class="live-stat">
+        <span>Current streak</span>
+        <strong id="live-streak">0</strong>
+      </div>
+      <div class="live-stat">
+        <span>Completed</span>
+        <strong id="live-completed">0%</strong>
+      </div>
+    </div>
+
+    <div
+      class="live-history"
+      id="live-history"
+      aria-label="Question results so far"
+    ></div>
+  </section>
+
+  <article class="question-panel">
+    <span class="section-kicker">
+      QUESTION {{ "%03d"|format(question_number) }}
+    </span>
+
+    <h1>{{ question.question }}</h1>
+
+    <p class="question-instruction">Select one answer to continue.</p>
+
+    <form id="answer-form" method="POST" action="{{ url_for('main.answer') }}">
+      <div class="answer-options">
+        {% for option in question.options %}
+        <label class="answer-option">
+          <input type="radio" name="answer" value="{{ option }}" required />
+          <span class="answer-letter"> {{ "ABCD"[loop.index0] }} </span>
+          <span class="answer-text">{{ option }}</span>
+          <i data-lucide="check" aria-hidden="true" class="answer-check"></i>
+        </label>
+        {% endfor %}
+      </div>
+
+      <button type="submit" class="button button-primary answer-submit">
+        Submit answer
+        <i data-lucide="arrow-right" aria-hidden="true"></i>
+      </button>
+    </form>
+  </article>
+</section>
+{% endblock %}
