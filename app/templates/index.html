@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quizzy | Test Your Knowledge</title>
-</head>
-<body>
-    <h1>Quizzy</h1>
-    <p>Challenge your knowledge. One question at a time.</p>
-    <button onclick="location.href='/health'">Check server</button>
-</body>
-</html>
+
+{% extends "base.html" %}
+
+{% block title %}Quizzy | Challenge Your Mind{% endblock %}
+
+{% block content %}
+<section class="container" style="padding-block: 100px;">
+    <p>YOUR NEXT CHALLENGE STARTS HERE</p>
+    <h1>Welcome to Quizzy.</h1>
+    <p>Your knowledge is waiting to be tested.</p>
+</section>
+{% endblock %}
