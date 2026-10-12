@@ -4,9 +4,167 @@
 {% block title %}Quizzy | Challenge Your Mind{% endblock %}
 
 {% block content %}
-<section class="container" style="padding-block: 100px;">
-    <p>YOUR NEXT CHALLENGE STARTS HERE</p>
-    <h1>Welcome to Quizzy.</h1>
-    <p>Your knowledge is waiting to be tested.</p>
+<section class="hero container">
+    <div class="hero-content">
+        <div class="eyebrow">
+            <span class="status-dot"></span>
+            YOUR NEXT CHALLENGE AWAITS
+        </div>
+
+        <h1>
+            How much do<br>
+            <span class="gradient-text">you really know?</span>
+        </h1>
+
+        <p class="hero-description">
+            Explore new topics, test your knowledge, and discover
+            what you're capable of. One question at a time.
+        </p>
+
+        <div class="hero-actions">
+            <a href="#quiz-setup" class="button button-primary">
+                Start a quiz
+                <span aria-hidden="true">↗</span>
+            </a>
+
+            <a href="#categories" class="button button-secondary">
+                Explore categories
+            </a>
+        </div>
+
+        <div class="hero-note">
+            <span>✦</span>
+            Learn something new with every attempt.
+        </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+        <div class="visual-glow"></div>
+
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+
+        <div class="floating-card card-top">
+            <span class="mini-icon purple-icon">✦</span>
+            <div>
+                <strong>Stay curious</strong>
+                <p>Every question counts</p>
+            </div>
+        </div>
+
+        <div class="quiz-preview">
+            <div class="preview-header">
+                <span class="preview-label">QUIZ PREVIEW</span>
+                <span class="preview-number">01 / 10</span>
+            </div>
+
+            <div class="preview-progress">
+                <span></span>
+            </div>
+
+            <div class="preview-symbol">✧</div>
+
+            <h2>Ready to challenge yourself?</h2>
+            <p>Choose a topic and see where curiosity takes you.</p>
+
+            <div class="preview-options">
+                <div><span>A</span> Science</div>
+                <div><span>B</span> Technology</div>
+                <div><span>C</span> History</div>
+            </div>
+
+            <div class="preview-footer">
+                <span>YOUR JOURNEY STARTS HERE</span>
+                <span class="preview-sparkle">✦</span>
+            </div>
+        </div>
+
+        <div class="floating-card card-bottom">
+            <span class="mini-icon green-icon">✓</span>
+            <div>
+                <strong>Keep improving</strong>
+                <p>Progress, one quiz at a time</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="categories-section container" id="categories">
+    <div class="section-heading">
+        <div>
+            <span class="section-kicker">FIND YOUR INTEREST</span>
+            <h2>Explore your curiosity<span class="brand-dot">.</span></h2>
+        </div>
+        <p>Pick a subject. See what you know.</p>
+    </div>
+
+    <div class="category-grid">
+        <button class="category-card" type="button" data-category="science">
+            <span class="category-icon">⚛</span>
+            <span class="category-name">Science</span>
+            <span class="category-description">Discover how the world works</span>
+            <span class="category-arrow">↗</span>
+        </button>
+
+        <button class="category-card" type="button" data-category="technology">
+            <span class="category-icon">⌘</span>
+            <span class="category-name">Technology</span>
+            <span class="category-description">Explore the digital world</span>
+            <span class="category-arrow">↗</span>
+        </button>
+
+        <button class="category-card" type="button" data-category="history">
+            <span class="category-icon">◷</span>
+            <span class="category-name">History</span>
+            <span class="category-description">Travel through time</span>
+            <span class="category-arrow">↗</span>
+        </button>
+
+        <button class="category-card" type="button" data-category="entertainment">
+            <span class="category-icon">▷</span>
+            <span class="category-name">Entertainment</span>
+            <span class="category-description">Movies, games, and more</span>
+            <span class="category-arrow">↗</span>
+        </button>
+    </div>
+</section>
+
+<section class="setup-section container" id="quiz-setup">
+    <div class="setup-panel">
+        <div class="section-kicker">MAKE IT YOURS</div>
+        <h2>Your challenge, your rules<span class="brand-dot">.</span></h2>
+        <p>Choose a difficulty and get ready to test your knowledge.</p>
+
+        <div class="difficulty-options" role="group" aria-label="Quiz difficulty">
+            <button type="button" class="difficulty-card is-selected"
+                    data-difficulty="easy" aria-pressed="true">
+                <span>☘</span>
+                <strong>Easy</strong>
+                <small>Warm up</small>
+            </button>
+
+            <button type="button" class="difficulty-card"
+                    data-difficulty="medium" aria-pressed="false">
+                <span>◈</span>
+                <strong>Medium</strong>
+                <small>Find your rhythm</small>
+            </button>
+
+            <button type="button" class="difficulty-card"
+                    data-difficulty="hard" aria-pressed="false">
+                <span>⚡</span>
+                <strong>Hard</strong>
+                <small>Push your limits</small>
+            </button>
+        </div>
+
+        <button class="button button-primary setup-start" id="start-quiz" type="button">
+            Let's get started <span aria-hidden="true">→</span>
+        </button>
+
+        <p class="setup-message" id="setup-message" role="status">
+            Your quiz settings are ready to customize.
+        </p>
+    </div>
 </section>
 {% endblock %}
